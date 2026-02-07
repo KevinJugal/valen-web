@@ -170,6 +170,24 @@ setQuestion(questions[0]);
 yesBtn.addEventListener("click", () => {
   if (isPopupOpen) return;
 
+  if (step === questions.length - 5) {
+    showPopup("I like you more :)")
+    setTimeout(() => {
+      closePopup();
+  },1500);
+  }
+  if (step === questions.length - 4) {
+    showPopup("Its me ofc...haha jk sameee:)")
+    setTimeout(() => {
+      closePopup();
+  },2500);
+  }
+  if (step === questions.length - 3) {
+    showPopup("hehehehe")
+    setTimeout(() => {
+      closePopup();
+  },2500);
+  }
   // Early questions - no special effects
   if (step < questions.length - 2) {
     step++;
@@ -204,8 +222,25 @@ noBtn.addEventListener("click", (e) => {
       setQuestion(questions[step])
     }, 1500);
   }
+
+  if (step === questions.length - 4) {
+    showPopup("LIAR")
+    setTimeout(() => {
+      closePopup();
+      step = questions.length -4;
+      setQuestion(questions[step])
+    }, 1500);
+  }
+  if (step === questions.length - 3) {
+    showPopup("OFCOURSE I DO! LIAR LIAR")
+    setTimeout(() => {
+      closePopup();
+      step = questions.length -3;
+      setQuestion(questions[step])
+    }, 2500);
+  }
   if (step < questions.length - 2) {
-    showPopup("Okay, honest answer. I still like you. 😅");
+    showPopup("Haww, lets try that again 😅");
     return;
   }
 
