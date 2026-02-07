@@ -11,10 +11,10 @@ let isPopupOpen = false;
 let confettiInterval = null; // For continuous effect
 
 const questions = [
-  "Do you like surprises? 😊",
-  "Do you enjoy spending time with me? 💕",
-  "Do I make you smile at least a little bit? 😏",
-  "Do you already have a Valentine this year? 💘",
+  "Do you like me?😊",
+  "Do you enjoy spending time with me?💕",
+  "Do I make you smile at least a little bit?😏",
+  "Do you already have a Valentine this year?💘",
   "Would you like to be my Valentine? 🥹"
 ];
 
@@ -180,14 +180,14 @@ yesBtn.addEventListener("click", () => {
   // SECOND-TO-LAST: "Do you already have a Valentine?" → CRACKING SCREEN
   if (step === questions.length - 2) {
     crackingScreen();
-    showPopup("Aww, then someone is very lucky already. 💔");
+    showPopup("Tell them your man is gon kick their ass and tell you aren't going! Now try again... 💔");
     return;
   }
 
   // LAST QUESTION: "Would you like to be my Valentine?" → CONTINUOUS CELEBRATION
   if (step === questions.length - 1) {
     continuousCelebration();
-    showPopup("Yay! You just made my day! 💖\nSee you on Valentine's Day! 🥰");
+    showPopup("Ofcourse its me...(PS Imma kick yo ass if you dont be 🥰");
   }
 });
 
@@ -195,13 +195,22 @@ yesBtn.addEventListener("click", () => {
 noBtn.addEventListener("click", (e) => {
   if (isPopupOpen) return;
 
+  
+  if (step === questions.length - 5) {
+    showPopup("Yes you do, click on yes now!")
+    setTimeout(() => {
+      closePopup();
+      step = questions.length -5;
+      setQuestion(questions[step])
+    }, 1500);
+  }
   if (step < questions.length - 2) {
     showPopup("Okay, honest answer. I still like you. 😅");
     return;
   }
 
   if (step === questions.length - 2) {
-    showPopup("So maybe I have a chance then… 🤭");
+    showPopup("good girl 🤭");
     setTimeout(() => {
       closePopup();
       step = questions.length - 1;
